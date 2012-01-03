@@ -1,9 +1,16 @@
-CC = $(SHADERC)
+CC = aqsl#$(SHADERC)
+RENDER = aqsis
 CFLAGS = -I inc/
-OUT = shaders/superlight.$(SLEXT)
+OUT := shaders/superlight.slx shaders/superSurface.slx
 
 shaders : $(OUT)
 
-shaders/%$(SLEXT) : src/%.sl
-	mkdir -p shaders/
-	$(SHADERC) $(CFLAGS) -o $@ $<
+shaders/%.slx : src/%.sl
+	@- mkdir -p shaders/
+	- $(CC) $(CFLAGS) -o $@ $<
+
+rib :
+	$(RENDER) rib/sphere.rib
+
+clean :
+	-rm -rf shaders/

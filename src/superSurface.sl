@@ -2,6 +2,8 @@
 
 surface superSurface()
 {
+	color diffclr = cat_diffuse("", N) * Cs;
+	color ambclr = ambient() * Cs;
     Oi = Os;
-    Ci = Cs;
+    Ci = (diffclr + ambclr) * Oi;
 }

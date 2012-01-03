@@ -4,7 +4,7 @@ version 3.03
 # Generation Time: Dec 06, 2011 at 15:04:27
 #   Backend: soho
 #     Render Defs: /opt/hfs.current/houdini/soho/python2.6/RIBprman15.0.py
-#        HIP File: /auto/fsi/eestrada/untitled.hip, $T=0, $FPS=24
+#        HIP File: /fsi/eestrada/untitled.hip, $T=0, $FPS=24
 #   Output driver: /out/sphere_rib
 # Retained geometry
 
@@ -40,10 +40,11 @@ ArchiveEnd	# }
 
 
 # Main image
-Option "searchpath" "shader" [".:../shader:/opt/pixar/RenderManProServer/lib/shaders"]
+Option "searchpath" "shader" [".:./shaders:/opt/pixar/RenderManProServer/lib/shaders:/usr/local/share/aqsis/shaders/displacement:/usr/local/share/aqsis/shaders/imager:/usr/local/share/aqsis/shaders/light:/usr/local/share/aqsis/shaders/surface:/usr/local/share/aqsis/shaders/volume"]
 FrameBegin 1	# {
     # main camera: /obj/render_cam
-    Display "sphere_rib.tiff" "tiff" "rgba"
+    # Display "sphere_rib.tiff" "tiff" "rgba"
+    Display "sphere_rib.tiff" "framebuffer" "rgba"
     PixelFilter "gaussian" 2 2
     Quantize "rgba" 0 0 0 0
     Hider "hidden"
@@ -62,32 +63,26 @@ FrameBegin 1	# {
 	# Light Source /obj/key_light
 	Transform [-0.679633597618 -5.96045962586e-08 -0.733551752086 0 -0.338749418837 0.886987499318 0.313850294395 0 -0.650651215496 -0.461793434399 0.602826525395 0 4.62136888504 4.6383767128 -4.29840564728 1]
 	Attribute "identifier" "string name" ["/obj/key_light"]
-	LightSource "pointlight" "/obj/key_light"  "uniform float intensity" [10]
+	LightSource "pointlight" "/obj/key_light"  "uniform float intensity" [40]
 	
 	# Light Source /obj/ambient_light
 	Transform [1 0 0 0 0 1 0 0 0 0 -1 0 0 0 0 1]
 	Attribute "identifier" "string name" ["/obj/ambient_light"]
-	LightSource "ambientlight" "/obj/ambient_light"  "uniform color lightcolor" [0.01 0.01 0.01]
+	LightSource "ambientlight" "/obj/ambient_light"  "uniform color lightcolor" [0.1 0.1 0.1]
 	
 	Identity
 	AttributeBegin	# {
 	    # Geometry object /obj/sphere
 	    Transform [1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1]
 	    Attribute "identifier" "string name" ["/obj/sphere"]
-	    Attribute "visibility" "diffuse" [1]
-	    Attribute "visibility" "specular" [1]
-	    Attribute "visibility" "transmission" [1]
-	    Surface "plastic" 
+	    Surface "superSurface" 
 	    ReadArchive "/obj/sphere"
 	AttributeEnd	# }
 	AttributeBegin	# {
 	    # Geometry object /obj/scene_box
 	    Transform [1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1]
 	    Attribute "identifier" "string name" ["/obj/scene_box"]
-	    Attribute "visibility" "diffuse" [1]
-	    Attribute "visibility" "specular" [1]
-	    Attribute "visibility" "transmission" [1]
-	    Surface "plastic" 
+	    Surface "superSurface" 
 	    ReadArchive "/obj/scene_box"
 	AttributeEnd	# }
     WorldEnd	# }

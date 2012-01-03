@@ -1,5 +1,3 @@
-
-
 light
 superlight (
       point from = point "shader" (0,0,0);
@@ -26,7 +24,7 @@ superlight (
 		{
 			if(doshadows)
  	  		{
- 	  			Cl = transmission(Ps, from, "samples", samples, "samplecone", lightradius) * lightcolor;
+ 	  			//Cl = transmission(Ps, from, "samples", samples, "samplecone", lightradius) * lightcolor;
  	  		}
 	   		else
 	   		{
@@ -40,7 +38,7 @@ superlight (
 		{
 			if(doshadows)
  	  		{
- 	  			Cl = transmission(Ps, from, "samples", samples, "samplecone", lightradius) * lightcolor;
+ 	  			//Cl = transmission(Ps, from, "samples", samples, "samplecone", lightradius) * lightcolor;
  	  		}
 	   		else
 	   		{
