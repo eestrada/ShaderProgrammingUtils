@@ -1,10 +1,9 @@
 CC = $(SHADERC)
 CFLAGS = -I inc/
-EXT = $(SLEXT)
-OUT = shaders/superlight.$(EXT)
+OUT = shaders/superlight.$(SLEXT)
 
 shaders : $(OUT)
 
 shaders/%$(SLEXT) : src/%.sl
 	mkdir -p shaders/
-	$(CC) $(CFLAGS) -o $@ $<
+	$(SHADERC) $(CFLAGS) -o $@ $<
