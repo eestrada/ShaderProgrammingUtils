@@ -1,0 +1,8 @@
+#include "shader_utils.h"
+
+surface
+testsurf()
+{
+    vector testvec = {1.0f,0.5f,0.75f};
+    Cf = shu_luminance(testvec);
+}
