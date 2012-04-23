@@ -1,4 +1,7 @@
-#include "shader_utils.h"
+#include "shumath.h"
+#include "shupattern.h"
+#include "shusurf.h"
+#include "shutype.h"
 
 surface
 testsurf()
