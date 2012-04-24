@@ -8,17 +8,18 @@
 #define     __shutype_h__
 
 //define statements for common types
-#define SHUint                  int
+#define SHUint                  float
 #define SHUfloat                float
-#define SHUcolor                vector
-#define SHUnormal               vector
-#define SHUpoint                vector
+#define SHUcolor                color
+#define SHUnormal               normal
+#define SHUpoint                point
 #define SHUvector               vector
-#define SHUvector4              vector4
-#define SHUmatrix3              matrix3
+#define SHUvector4              <error>
+#define SHUmatrix3              <error>
 #define SHUmatrix4              matrix
 #define SHUstring               string
-#define SHUbsdf                 bsdf
+/*  Maybe RSL will implement BSDFs someday, so just make this a float instead of
+    an <error>.*/
+#define SHUbsdf                 float    
 
 #endif
-

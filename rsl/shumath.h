@@ -13,6 +13,7 @@
 
 
 //Define common math function
+#define shu_pow             pow
 #define shu_abs             abs
 #define shu_exp             exp
 #define shu_log             log
@@ -29,7 +30,7 @@
 //Define geometric functions
 #define shu_length          length
 #define shu_distance(a,b)   shu_length(a-b)
-#define shu_dot             dot
+#define shu_dot(a,b)        ((a).(b))
 #define shu_cross           cross
 #define shu_normalize       normalize
 #define shu_faceforward     frontface
@@ -54,6 +55,9 @@
 
 
 //Define color functions
-#define shu_luminance(rgbclr)   luminance(rgbclr)
+float shu_luminance(color rgbclr)
+{
+    return comp(rgbclr, 0)*0.299+comp(rgbclr, 1)*0.587+comp(rgbclr, 2)*0.114;
+}
 
 #endif

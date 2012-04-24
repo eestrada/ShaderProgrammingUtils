@@ -12,6 +12,6 @@
 surface
 testsurf()
 {
-    vector testvec = shu_specular("", normalize(N), normalize(I), 0.1);
-    Cf = testvec;
+    color testclr = shu_specular("", normalize(N), normalize(I), 0.1);
+    Ci = testclr;
 }
