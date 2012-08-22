@@ -28,7 +28,7 @@
 
 //Define geometric functions
 #define shu_length          length
-#define shu_distance(a,b)   shu_length(a-b)
+#define shu_distance(a,b)   shu_length((a)-(b))
 #define shu_dot             dot
 #define shu_cross           cross
 #define shu_normalize       normalize
